@@ -1,0 +1,168 @@
+@use "variables" as *;
+
+// =============================================================================
+// Typography Design System
+// Based on: Libre Baskerville type scale
+// =============================================================================
+//
+// USAGE GUIDE
+// -----------
+// Base classes (apply at all breakpoints):
+//   .tp-1 … .tp-7        — "normal" presets (desktop-first scale)
+//   .tp-1-m … .tp-5-m    — mobile presets (usable at any viewport width)
+//
+// Responsive override classes (mobile-first, override at a breakpoint):
+//   .sm:{preset}          — applies from the 'sm' breakpoint upward  (≥ 700px)
+//   .md:{preset}          — applies from the 'md' breakpoint upward  (≥ 1000px)
+//
+//   Where {preset} is any of: tp-1, tp-2, … tp-7, tp-1-m, … tp-5-m
+//
+// Examples:
+//   class="tp-1-m"                    → mobile-1 on ALL devices
+//   class="tp-1-m md:tp-2"            → mobile-1 on phone+tablet, tp-2 on desktop
+//   class="tp-1-m sm:tp-1-m md:tp-2"  → same but explicit about tablet
+//   class="tp-4-m"                    → mobile-4 everywhere (your edge-case example)
+//   class="tp-3 md:tp-1"              → tp-3 up to md, tp-1 from md onward
+//
+// Mixin usage inside custom selectors:
+//   .my-heading { @include tp-styles(1, false); }          → tp-1 styles
+//   .my-caption { @include tp-styles(4, true);  }          → tp-4-m styles
+//   .my-hero    {
+//     @include tp-styles(1, true);                         → mobile-1 by default
+//     @include respond-to(md) { @include tp-styles(1); }  → tp-1 from md up
+//   }
+// =============================================================================
+
+// ---------------------------------------------------------------------------
+// 1. Breakpoints — aligned with $bp-tablet and $bp-desktop in _variables.scss
+// ---------------------------------------------------------------------------
+
+$breakpoints: (
+  "sm": $bp-tablet,
+  // 700px (in rem via _variables.scss)
+  "md": $bp-desktop, // 1000px (in rem via _variables.scss)
+);
+
+@mixin respond-to($bp) {
+  @if map-has-key($breakpoints, $bp) {
+    @media (min-width: map-get($breakpoints, $bp)) {
+      @content;
+    }
+  } @else {
+    @warn "Unknown breakpoint: `#{$bp}`.";
+  }
+}
+
+// ---------------------------------------------------------------------------
+// 2. Type Scale Definitions — all values reference CSS custom properties
+//    from _variables.scss.
+//
+//    Each entry: (--fs-*, --lh-*, --ls-*, --fw-*)
+//
+//    Font sizes  → --fs-1 … --fs-10  (already in rem via toRem())
+//    Line heights → --lh-1 (1) | --lh-2 (1.15) | --lh-3 (1.2)
+//                   --lh-4 (1.25) | --lh-5 (1.35) | --lh-6 (2)
+//    Letter sp.  → --ls-minus-2 (-0.25px) | --ls-minus-1 (-0.2px)
+//                   --ls-0 (0) | --ls-1 (2px) | --ls-3 (2.5px)
+//    Font weights → --fw-regular (400) | --fw-bold (700)
+// ---------------------------------------------------------------------------
+
+$tp-normal: (
+  //        fs          lh        ls       fw
+  1: ("--fs-1", "--lh-2", "--ls-2", "--fw-2"),
+  // 200px / 1.15  / -0.2px  / Bold
+  2: ("--fs-3", "--lh-2", "--ls-3", "--fw-2"),
+  //  56px / 1.15  /  0      / Bold
+  3: ("--fs-5", "--lh-4", "--ls-3", "--fw-2"),
+  //  18px / 1.25  /  0      / Bold
+  4: ("--fs-6", "--lh-5", "--ls-3", "--fw-1"),
+  //  15px / 1.35  /  0      / Regular
+  5: ("--fs-8", "--lh-4", "--ls-3", "--fw-1"),
+  //  13px / 1.25  /  0      / Regular
+  6: ("--fs-9", "--lh-4", "--ls-5", "--fw-2"),
+  //  12px / 1.25  /  2.5px  / Bold
+  7: ("--fs-10", "--lh-3", "--ls-4", "--fw-2") //  10px / 1.2   /  2px    / Bold
+);
+
+$tp-mobile: (
+  //        fs          lh        ls       fw
+  1: ("--fs-2", "--lh-1", "--ls-3", "--fw-2"),
+  // 100px / 1    /  0      / Bold
+  2: ("--fs-4", "--lh-4", "--ls-3", "--fw-2"),
+  //  24px / 1.25 /  0      / Bold
+  3: ("--fs-7", "--lh-6", "--ls-1", "--fw-2"),
+  //  14px / 2    / -0.25px / Bold
+  4: ("--fs-10", "--lh-3", "--ls-3", "--fw-1"),
+  //  10px / 1.2  /  0      / Regular
+  5: ("--fs-11", "--lh-4", "--ls-4", "--fw-1") //   9px / 1.25 /  2px    / Regular
+);
+
+// ---------------------------------------------------------------------------
+// 3. Core Mixin
+// ---------------------------------------------------------------------------
+
+/// Output the raw typographic CSS for a given preset.
+/// All property values are CSS var() references — no hard-coded px/rem values.
+/// @param {Number}  $index  — preset number (1–7 for normal, 1–5 for mobile)
+/// @param {Boolean} $mobile — true = mobile scale, false = normal scale
+@mixin tp-styles($index, $mobile: false) {
+  $map: if($mobile, $tp-mobile, $tp-normal);
+
+  @if not map-has-key($map, $index) {
+    @warn "tp-styles: preset #{$index} not found in #{if($mobile, 'mobile', 'normal')} scale.";
+  } @else {
+    $values: map-get($map, $index);
+    $fs-var: nth($values, 1);
+    $lh-var: nth($values, 2);
+    $ls-var: nth($values, 3);
+    $fw-var: nth($values, 4);
+
+    font-family: var(--ff-primary);
+    font-size: var(#{$fs-var});
+    line-height: var(#{$lh-var});
+    letter-spacing: var(#{$ls-var});
+    font-weight: var(#{$fw-var});
+  }
+}
+
+// ---------------------------------------------------------------------------
+// 4. Base Utility Classes
+//    .tp-{n}    and .tp-{n}-m
+//    These apply at ALL viewport widths (no media query wrapping).
+// ---------------------------------------------------------------------------
+
+@each $index, $values in $tp-normal {
+  .tp-#{$index} {
+    @include tp-styles($index, false);
+  }
+}
+
+@each $index, $values in $tp-mobile {
+  .tp-#{$index}-m {
+    @include tp-styles($index, true);
+  }
+}
+
+// ---------------------------------------------------------------------------
+// 5. Responsive Override Classes
+//    .{breakpoint}\:tp-{n}    and .{breakpoint}\:tp-{n}-m
+//
+//    Colon is escaped so the class name is written as  sm:tp-2  in HTML.
+//    These kick in AT the named breakpoint and above (min-width, mobile-first).
+// ---------------------------------------------------------------------------
+
+@each $bp, $width in $breakpoints {
+  @include respond-to($bp) {
+    @each $index, $values in $tp-normal {
+      .#{$bp}\:tp-#{$index} {
+        @include tp-styles($index, false);
+      }
+    }
+
+    @each $index, $values in $tp-mobile {
+      .#{$bp}\:tp-#{$index}-m {
+        @include tp-styles($index, true);
+      }
+    }
+  }
+}

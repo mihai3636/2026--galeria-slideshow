@@ -1,0 +1,87 @@
+@use "./utils" as *;
+
+$bp-tablet: #{toRem(700px)};
+$bp-desktop: #{toRem(1000px)};
+
+:root {
+  --clr-white: #fff;
+  --clr-black: #000;
+
+  --clr-black-84: rgba(0, 0, 0, 0.84);
+  --clr-black-0: rgba(0, 0, 0, 0);
+
+  --clr-grey-1: #f3f3f3;
+  --clr-grey-2: #e5e5e5;
+  --clr-grey-3: #d8d8d8;
+  --clr-grey-4: #7d7d7d;
+
+  --clr-gradient: linear-gradient(
+    to bottom,
+    var(--clr-black-0),
+    var(--clr-black)
+  );
+
+  // FONT FAMILY
+
+  --ff-primary: "Libre Baskerville", sans-serif;
+
+  // FONT WEIGHT
+  --fw-1: 400;
+  --fw-2: 700;
+
+  // FONT SIZE
+  --fs-1: #{toRem(200px)};
+  --fs-2: #{toRem(100px)};
+  --fs-3: #{toRem(56px)};
+  --fs-4: #{toRem(24px)};
+  --fs-5: #{toRem(18px)};
+  --fs-6: #{toRem(15px)};
+  --fs-7: #{toRem(14px)};
+  --fs-8: #{toRem(13px)};
+  --fs-9: #{toRem(12px)};
+  --fs-10: #{toRem(10px)};
+  --fs-11: #{toRem(9px)};
+
+  // SPACING
+  --sp-0: 0;
+  --sp-1: #{toRem(8px)};
+  --sp-2: #{toRem(16px)};
+  --sp-3: #{toRem(24px)};
+  --sp-4: #{toRem(32px)};
+  --sp-5: #{toRem(40px)};
+  --sp-6: #{toRem(56px)};
+  --sp-7: #{toRem(64px)};
+  --sp-8: #{toRem(80px)};
+  --sp-9: #{toRem(96px)};
+
+  // LETTER SPACING
+
+  --ls-1: -0.25px;
+  --ls-2: -0.2px;
+  --ls-3: 0;
+  --ls-4: 2px;
+  --ls-5: 2.5px;
+
+  // LINE HEIGHT
+
+  --lh-1: 1;
+  --lh-2: 1.15;
+  --lh-3: 1.2;
+  --lh-4: 1.25;
+  --lh-5: 1.35;  // used by tp-4 (Text Preset 4 — 135% line height)
+  --lh-6: 2;
+
+  // BOX SHADOWS
+
+  // BORDER RADIUS
+  --br-circle: 50%;
+
+  // CTA BTN SIZE
+  --cta-btn-size: #{toRem(144px)};
+  @media (min-width: $bp-tablet) {
+    --cta-btn-size: #{toRem(272px)};
+  }
+
+  // CONTAINERS
+  --desktop-container-width: #{toRem(1440px)};
+}
