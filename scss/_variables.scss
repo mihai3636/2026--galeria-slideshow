@@ -4,6 +4,10 @@ $bp-tablet: #{toRem(700px)};
 $bp-desktop: #{toRem(1000px)};
 
 :root {
+  // CONTAINERS
+  --desktop-container-width: #{toRem(1440px)};
+
+  // COLORS
   --clr-white: #fff;
   --clr-black: #000;
 
@@ -68,7 +72,7 @@ $bp-desktop: #{toRem(1000px)};
   --lh-2: 1.15;
   --lh-3: 1.2;
   --lh-4: 1.25;
-  --lh-5: 1.35;  // used by tp-4 (Text Preset 4 — 135% line height)
+  --lh-5: 1.35;
   --lh-6: 2;
 
   // BOX SHADOWS
@@ -81,7 +85,4 @@ $bp-desktop: #{toRem(1000px)};
   @media (min-width: $bp-tablet) {
     --cta-btn-size: #{toRem(272px)};
   }
-
-  // CONTAINERS
-  --desktop-container-width: #{toRem(1440px)};
 }

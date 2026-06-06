@@ -1,9 +1,7 @@
 @use "utils" as *;
 @use "variables" as *;
+@use "typography" as *;
 
 body {
-  font-family: var(--ff-primary), sans-serif;
-  font-size: var(--fs-4);
-  font-weight: var(--fw-regular);
-  line-height: 1.5;
+  @include tp-styles(3, true);
 }
