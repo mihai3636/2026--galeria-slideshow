@@ -1,0 +1,35 @@
+@use "utils" as *;
+@use "variables" as *;
+
+.header {
+  //   background-color: red;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding-block: var(--sp-3);
+  @media (min-width: $bp-desktop) {
+    padding-block: var(--sp-5);
+  }
+}
+
+.header__logo {
+  max-width: 113px;
+
+  @media (min-width: $bp-desktop) {
+    max-width: none;
+  }
+}
+
+.header__btn {
+  padding-block: var(--sp-1);
+  border: none;
+  background: none;
+  cursor: pointer;
+
+  color: var(--clr-grey-4);
+
+  &:hover {
+    color: var(--clr-black);
+  }
+}
