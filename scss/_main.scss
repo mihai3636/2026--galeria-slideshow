@@ -1,0 +1,40 @@
+@use "utils" as *;
+@use "variables" as *;
+
+.gallery {
+}
+
+.card {
+  position: relative;
+}
+
+.card::after {
+  content: "";
+  position: absolute;
+
+  inset: 0;
+  background: var(--clr-gradient);
+}
+
+.card__img {
+}
+
+.card__info {
+  --flow-spacer: var(--sp-1);
+
+  position: absolute;
+  z-index: 1;
+
+  bottom: var(--sp-4);
+  left: var(--sp-4);
+  right: var(--sp-4);
+}
+
+.card__title {
+  color: white;
+}
+
+.card__author {
+  color: white;
+  opacity: 0.75;
+}

@@ -18,6 +18,14 @@
   }
 }
 
+main.section {
+  padding-block: var(--sp-3);
+
+  @media (min-width: $bp-tablet) {
+    padding-block: var(--sp-5);
+  }
+}
+
 .container {
   max-width: var(--desktop-container-width);
   margin-inline: auto;
@@ -43,6 +51,10 @@
 
 .uppercase {
   text-transform: uppercase;
+}
+
+.fg-white {
+  color: var(--clr-white);
 }
 
 /******** DECORATIONS ***********/

@@ -386,6 +386,15 @@ body {
   }
 }
 
+main.section {
+  padding-block: var(--sp-3);
+}
+@media (min-width: 43.75rem) {
+  main.section {
+    padding-block: var(--sp-5);
+  }
+}
+
 .container {
   max-width: var(--desktop-container-width);
   margin-inline: auto;
@@ -410,6 +419,10 @@ body {
 /******** TEXT ***********/
 .uppercase {
   text-transform: uppercase;
+}
+
+.fg-white {
+  color: var(--clr-white);
 }
 
 /******** DECORATIONS ***********/
@@ -504,6 +517,35 @@ body {
 }
 .header__btn:hover {
   color: var(--clr-black);
+}
+
+.card {
+  position: relative;
+}
+
+.card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--clr-gradient);
+}
+
+.card__info {
+  --flow-spacer: var(--sp-1);
+  position: absolute;
+  z-index: 1;
+  bottom: var(--sp-4);
+  left: var(--sp-4);
+  right: var(--sp-4);
+}
+
+.card__title {
+  color: white;
+}
+
+.card__author {
+  color: white;
+  opacity: 0.75;
 }
 
 /*# sourceMappingURL=styles.css.map */
