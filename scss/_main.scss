@@ -2,10 +2,26 @@
 @use "variables" as *;
 
 .gallery {
+  --flow-spacer: var(--sp-5);
+  columns: 1;
+
+  @media (min-width: $bp-tablet) {
+    columns: 2;
+  }
+
+  @media (min-width: $bp-desktop) {
+    columns: 4;
+  }
+}
+
+.gallery > * {
+  break-inside: avoid;
 }
 
 .card {
   position: relative;
+  max-width: 310px;
+  margin-inline: auto;
 }
 
 .card::after {
@@ -14,6 +30,8 @@
 
   inset: 0;
   background: var(--clr-gradient);
+
+  pointer-events: none;
 }
 
 .card__img {
@@ -28,6 +46,12 @@
   bottom: var(--sp-4);
   left: var(--sp-4);
   right: var(--sp-4);
+
+  pointer-events: none;
+
+  & * {
+    pointer-events: none;
+  }
 }
 
 .card__title {

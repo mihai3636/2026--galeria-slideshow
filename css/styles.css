@@ -519,8 +519,29 @@ main.section {
   color: var(--clr-black);
 }
 
+.gallery {
+  --flow-spacer: var(--sp-5);
+  columns: 1;
+}
+@media (min-width: 43.75rem) {
+  .gallery {
+    columns: 2;
+  }
+}
+@media (min-width: 62.5rem) {
+  .gallery {
+    columns: 4;
+  }
+}
+
+.gallery > * {
+  break-inside: avoid;
+}
+
 .card {
   position: relative;
+  max-width: 310px;
+  margin-inline: auto;
 }
 
 .card::after {
@@ -528,6 +549,7 @@ main.section {
   position: absolute;
   inset: 0;
   background: var(--clr-gradient);
+  pointer-events: none;
 }
 
 .card__info {
@@ -537,6 +559,10 @@ main.section {
   bottom: var(--sp-4);
   left: var(--sp-4);
   right: var(--sp-4);
+  pointer-events: none;
+}
+.card__info * {
+  pointer-events: none;
 }
 
 .card__title {
