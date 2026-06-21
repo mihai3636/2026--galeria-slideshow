@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/favicon-32x32.png"
+    />
+
+    <title>Galleria slideshow site</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400..700;1,400..700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="./css/styles.css" />
+  </head>
+  <body>
+    <header class="section border-bottom">
+      <div class="container header">
+        <img class="header__logo" src="./assets/shared/logo.svg" alt="Logo" />
+        <button id="btnStart" class="header__btn tp-5-m sm:tp-6 uppercase">
+          Start Slideshow
+        </button>
+      </div>
+    </header>
+    <main class="section">
+      <div class="container">
+        <div class="heading">
+          <!-- Here we will put the h1 title, author picc and large img -->
+        </div>
+        <div class="info">
+          <span id="textYear" class="info__year">1889</span>
+          <div class="info__wrapper">
+            <p id="textInfo" class="info__text tp-3-m">
+              Although The Starry Night was painted during the day in Van Gogh's
+              ground-floor studio, it would be inaccurate to state that the
+              picture was painted from memory. The view has been identified as
+              the one from his bedroom window, facing east, a view which Van
+              Gogh painted variations of no fewer than twenty-one times,
+              including The Starry Night. "Through the iron-barred window," he
+              wrote to his brother, Theo, around 23 May 1889, "I can see an
+              enclosed square of wheat ... above which, in the morning, I watch
+              the sun rise in all its glory."
+            </p>
+            <a href="#" class="tp-5-m uppercase">Go to source</a>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer class="section">
+      <div class="container footer">
+        <div class="footer__left flow-content">
+          <h2 class="footer__title tp-3-m md:tp-3">Starry Night</h2>
+          <p class="footer_author tp-4-m md:tp-5 transparent-75">
+            Vincent Van Gogh
+          </p>
+        </div>
+        <div class="footer__right">
+          <button class="footer__btn" disabled>
+            <svg viewBox="0 0 26 24" xmlns="http://www.w3.org/2000/svg">
+              <g stroke="currentColor" fill="none" fill-rule="evenodd">
+                <path
+                  d="M24.166 1.843L3.627 12.113l20.539 10.269V1.843z"
+                  stroke-width="2"
+                />
+                <path fill="#D8D8D8" d="M.986.5h-1v22.775h1z" />
+              </g>
+            </svg>
+          </button>
+
+          <button class="footer__btn">
+            <svg viewBox="0 0 26 24" xmlns="http://www.w3.org/2000/svg">
+              <g stroke="currentColor" fill="none" fill-rule="evenodd">
+                <path
+                  d="M1.528 1.843l20.538 10.27L1.528 22.382V1.843z"
+                  stroke-width="2"
+                />
+                <path fill="#D8D8D8" d="M24.708.5h1v22.775h-1z" />
+              </g>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

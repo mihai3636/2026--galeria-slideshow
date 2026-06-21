@@ -1,0 +1,40 @@
+@use "utils" as *;
+@use "variables" as *;
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer__left {
+  --flow-spacer: 0;
+
+  @media (min-width: $bp-tablet) {
+    --flow-spacer: var(--sp-1);
+  }
+}
+
+.footer__right {
+  display: flex;
+  gap: var(--sp-5);
+}
+
+.footer__btn {
+  display: flex;
+  cursor: pointer;
+  background: none;
+  border: none;
+
+  svg {
+    width: #{toRem(16px)};
+    aspect-ratio: 1;
+    @media (min-width: $bp-tablet) {
+      width: var(--sp-3);
+    }
+  }
+
+  &[disabled] svg {
+    color: var(--clr-grey-4);
+  }
+}

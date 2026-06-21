@@ -1,0 +1,6 @@
+@use "utils" as *;
+@use "variables" as *;
+
+.info {
+  color: var(--clr-grey-4);
+}

@@ -437,6 +437,10 @@ main.section {
   opacity: 0.5;
 }
 
+.transparent-75 {
+  opacity: 0.75;
+}
+
 .border-bottom {
   border-bottom: 1px solid var(--clr-grey-2);
 }
@@ -572,6 +576,49 @@ main.section {
 .card__author {
   color: white;
   opacity: 0.75;
+}
+
+.info {
+  color: var(--clr-grey-4);
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer__left {
+  --flow-spacer: 0;
+}
+@media (min-width: 43.75rem) {
+  .footer__left {
+    --flow-spacer: var(--sp-1);
+  }
+}
+
+.footer__right {
+  display: flex;
+  gap: var(--sp-5);
+}
+
+.footer__btn {
+  display: flex;
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+.footer__btn svg {
+  width: 1rem;
+  aspect-ratio: 1;
+}
+@media (min-width: 43.75rem) {
+  .footer__btn svg {
+    width: var(--sp-3);
+  }
+}
+.footer__btn[disabled] svg {
+  color: var(--clr-grey-4);
 }
 
 /*# sourceMappingURL=styles.css.map */
