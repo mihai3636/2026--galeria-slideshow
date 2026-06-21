@@ -580,6 +580,51 @@ main.section {
 
 .info {
   color: var(--clr-grey-4);
+  position: relative;
+  padding-top: var(--sp-9);
+  display: flex;
+  justify-content: center;
+}
+
+.info__year {
+  color: var(--clr-grey-1);
+  position: absolute;
+  z-index: -1;
+  top: var(--sp-4);
+  right: 0;
+}
+@media (min-width: 43.75rem) {
+  .info__year {
+    right: auto;
+    left: 0;
+    top: 0;
+  }
+}
+@media (min-width: 62.5rem) {
+  .info__year {
+    left: auto;
+    right: 0;
+    top: 0;
+  }
+}
+
+.info__wrapper {
+  --flow-spacer: var(--sp-7);
+}
+@media (min-width: 43.75rem) {
+  .info__wrapper {
+    --flow-spacer: var(--sp-5);
+    max-width: 457px;
+  }
+}
+@media (min-width: 62.5rem) {
+  .info__wrapper {
+    --flow-spacer: var(--sp-9);
+  }
+}
+
+.info__source {
+  display: inline-block;
 }
 
 .footer {
