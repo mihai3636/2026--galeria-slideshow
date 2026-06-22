@@ -1,6 +1,11 @@
 @use "utils" as *;
 @use "variables" as *;
 
+.section:has(.footer) {
+  border-top: 1px solid var(--clr-grey-1);
+  padding-block: var(--sp-2);
+}
+
 .footer {
   display: flex;
   justify-content: space-between;

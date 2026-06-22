@@ -35,6 +35,39 @@
       <div class="container">
         <div class="heading">
           <!-- Here we will put the h1 title, author picc and large img -->
+          <div class="heading__hero">
+            <picture>
+              <source
+                media="(min-width: 43.75rem)"
+                srcset="./assets/starry-night/hero-large.jpg"
+              />
+              <img
+                src="./assets/starry-night/hero-small.jpg"
+                alt="Starry night"
+              />
+            </picture>
+            <button class="expand heading__btn">
+              <img
+                class="expand__icon"
+                src="./assets/shared/icon-view-image.svg"
+                alt="View image icon"
+              />
+              <span class="expand__text tp-7">VIEW IMAGE </span>
+            </button>
+          </div>
+
+          <div class="heading__subhero">
+            <div class="heading__text flow-content">
+              <h1 class="heading__title tp-2-m sm:tp-2">Starry Night</h1>
+              <p class="heading__author tp-4">Vincent Van Gogh</p>
+            </div>
+
+            <img
+              class="heading__img-author"
+              src="./assets//starry-night/artist.jpg"
+              alt="Vincent Van Gogh"
+            />
+          </div>
         </div>
         <div class="info">
           <span id="textYear" class="info__year tp-1-m sm:tp-1">1889</span>
