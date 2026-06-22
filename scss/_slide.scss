@@ -1,6 +1,26 @@
 @use "utils" as *;
 @use "variables" as *;
 
+.section:has(.heading) {
+  padding-block-start: var(--sp-3);
+
+  @media (min-width: $bp-tablet) {
+    padding-block-start: var(--sp-5);
+  }
+
+  @media (min-width: $bp-desktop) {
+    padding-block-start: var(--sp-9);
+  }
+}
+
+.container:has(.heading) {
+  @media (min-width: $bp-desktop) {
+    display: grid;
+    grid-template-columns: 6fr 4fr;
+    column-gap: var(--sp-4);
+  }
+}
+
 .heading {
   position: relative;
   padding-block-end: var(--sp-5);
@@ -12,7 +32,7 @@
   position: relative;
 
   @media (min-width: $bp-tablet) {
-    max-width: 60%;
+    max-width: min(#{toRem(475px)}, 70%);
   }
 }
 
@@ -53,9 +73,19 @@
   @media (min-width: $bp-tablet) {
     transform: translateY(0);
     top: 0;
-    left: 30%;
+    left: #{toRem(238px)};
     right: 0;
+    max-width: #{toRem(484px)};
     bottom: auto;
+  }
+
+  @media (min-width: $bp-desktop) {
+    left: #{toRem(400px)};
+    bottom: 0;
+    max-width: #{toRem(445px)};
+
+    display: flex;
+    flex-direction: column;
   }
 }
 
@@ -82,8 +112,15 @@
   aspect-ratio: 1;
 
   @media (min-width: $bp-tablet) {
-    max-width: none;
+    max-width: #{toRem(128px)};
     margin-left: auto;
+  }
+
+  @media (min-width: $bp-desktop) {
+    margin-top: auto;
+    margin-left: #{toRem(100px)};
+
+    transform: translateY(20%);
   }
 }
 
@@ -124,12 +161,13 @@
   @media (min-width: $bp-tablet) {
     --flow-spacer: var(--sp-5);
 
-    max-width: 457px;
+    max-width: #{toRem(457px)};
   }
 
   @media (min-width: $bp-desktop) {
     // todo: in spec it is 108px
     --flow-spacer: var(--sp-9);
+    max-width: #{toRem(350px)};
   }
 }
 
