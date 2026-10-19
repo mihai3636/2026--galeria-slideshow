@@ -1,0 +1,104 @@
+const html = /*html*/ `
+    <main class="section">
+      <div class="container">
+        <div class="heading">
+          <!-- Here we will put the h1 title, author picc and large img -->
+          <div class="heading__hero">
+            <picture>
+              <source
+                media="(min-width: 43.75rem)"
+                srcset="./assets/starry-night/hero-large.jpg"
+              />
+              <img
+                src="./assets/starry-night/hero-small.jpg"
+                alt="Starry night"
+              />
+            </picture>
+            <button class="expand heading__btn">
+              <img
+                class="expand__icon"
+                src="./assets/shared/icon-view-image.svg"
+                alt="View image icon"
+              />
+              <span class="expand__text tp-7">VIEW IMAGE </span>
+            </button>
+          </div>
+
+          <div class="heading__subhero">
+            <div class="heading__text flow-content">
+              <h1 class="heading__title tp-2-m sm:tp-2">Starry Night</h1>
+              <p class="heading__author tp-4">Vincent Van Gogh</p>
+            </div>
+
+            <img
+              class="heading__img-author"
+              src="./assets//starry-night/artist.jpg"
+              alt="Vincent Van Gogh"
+            />
+          </div>
+        </div>
+        <div class="info">
+          <span id="textYear" class="info__year tp-1-m sm:tp-1">1889</span>
+          <div class="info__wrapper flow-content">
+            <p id="textInfo" class="info__text tp-3-m">
+              Although The Starry Night was painted during the day in Van Gogh's
+              ground-floor studio, it would be inaccurate to state that the
+              picture was painted from memory. The view has been identified as
+              the one from his bedroom window, facing east, a view which Van
+              Gogh painted variations of no fewer than twenty-one times,
+              including The Starry Night. "Through the iron-barred window," he
+              wrote to his brother, Theo, around 23 May 1889, "I can see an
+              enclosed square of wheat ... above which, in the morning, I watch
+              the sun rise in all its glory."
+            </p>
+            <a href="#" class="info__source tp-5-m uppercase">Go to source</a>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer class="section">
+      <div class="container footer">
+        <div class="footer__left flow-content">
+          <h2 class="footer__title tp-3-m sm:tp-3">Starry Night</h2>
+          <p class="footer_author tp-4-m sm:tp-5 transparent-75">
+            Vincent Van Gogh
+          </p>
+        </div>
+        <div class="footer__right">
+          <button class="footer__btn" disabled>
+            <svg viewBox="0 0 26 24" xmlns="http://www.w3.org/2000/svg">
+              <g stroke="currentColor" fill="none" fill-rule="evenodd">
+                <path
+                  d="M24.166 1.843L3.627 12.113l20.539 10.269V1.843z"
+                  stroke-width="2"
+                />
+                <path fill="#D8D8D8" d="M.986.5h-1v22.775h1z" />
+              </g>
+            </svg>
+          </button>
+
+          <button class="footer__btn">
+            <svg viewBox="0 0 26 24" xmlns="http://www.w3.org/2000/svg">
+              <g stroke="currentColor" fill="none" fill-rule="evenodd">
+                <path
+                  d="M1.528 1.843l20.538 10.27L1.528 22.382V1.843z"
+                  stroke-width="2"
+                />
+                <path fill="#D8D8D8" d="M24.708.5h1v22.775h-1z" />
+              </g>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </footer>
+`;
+
+const onLoad = () => {
+  console.log("Article loaded");
+};
+
+const cleanup = () => {
+  console.log("Article cleanup");
+};
+
+export default { html, onLoad, cleanup };
