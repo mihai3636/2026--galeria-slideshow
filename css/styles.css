@@ -494,6 +494,13 @@ main.section {
   transform: translateX(100%);
 }
 
+header {
+  position: sticky;
+  top: 0px;
+  z-index: 2;
+  background-color: var(--clr-white);
+}
+
 .header {
   display: flex;
   justify-content: space-between;
