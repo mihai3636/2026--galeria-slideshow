@@ -1,5 +1,4 @@
 const html = /*html*/ `
-  <main class="section">
     <div class="container">
       <div class="gallery flow-content">
         <article class="card">
@@ -200,11 +199,13 @@ const html = /*html*/ `
         </article>
       </div>
     </div>
-  </main>
 `;
 
 const onLoad = () => {
   console.log("Home Module onLoad called");
+  console.log("Hiding footer");
+
+  document.querySelector("footer").hidden = true;
 };
 
 const cleanup = () => {
